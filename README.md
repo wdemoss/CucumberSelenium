@@ -8,10 +8,9 @@ This framework is a combination of maven, cucumber and selenium.
 - If any of the browser not present, comment the data line from feature file.
 - The version of selenium webdriver being used is 3.0.1
 - The browser versions this is being tested are:
-
-> Chrome - Version 55.0.2883.87 m (64-bit)
-> Firefox - Version 50.1.0 (64-bit)
-> Edge - Microsoft Edge 38.14393.0.0
+    * Chrome - Version 55.0.2883.87 m (64-bit)
+    * Firefox - Version 50.1.0 (64-bit)
+    * Edge - Microsoft Edge 38.14393.0.0
 
 # Setting up project in local - 
 - If using git command line then use the below line on terminal.
