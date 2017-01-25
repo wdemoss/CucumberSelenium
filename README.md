@@ -16,3 +16,43 @@ git clone https://github.com/sourabhmunje/CucumberSelenium.git
 ```
 https://github.com/sourabhmunje/CucumberSelenium
 ```
+
+# Writing test cases 
+This is a cucumber based project, so test cases can be written in feature files which are at folder location /src/test/resource/Tests1.feature
+
+- The name of the scenario can be given using _Scenario Outline:_
+- Any additional test cases can be written using annotations Given, When, And, Then
+- The data to be provided should be given using _Examples:_
+- The browser to be used for execution is denoted by _browserType_
+- The browsers supported are Firefox, Chrome and Edge.
+- The keyword to be used for browsers are: firefox- _ff_, Chrome- _chrome_, Edge- _edge_
+- If browser not specified, then firefox will be default browser.
+- The test cases to be excuted needs to be specified with tags for example- _@test1_
+- This tag needs to be specified in the RunnerTest.java
+```
+@Cucumber.Options(format = { "pretty", "json:target/json/output.json","html:target/html/" },
+				features = { "./src/test/resource" },
+				tags = { "@test1" })
+```
+
+# Executing test cases
+
+- Go to the folder where project is present.
+- Use maven commands to clean the project
+```
+mvn clean
+```
+- Compile the project
+```
+mvn compile
+```
+- Run the test cases
+```
+mvn test
+```
+
+# Reporting 
+- The html report will be present in the target\html folder.
+
+
+
