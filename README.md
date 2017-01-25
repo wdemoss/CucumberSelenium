@@ -23,6 +23,7 @@ This is a cucumber based project, so test cases can be written in feature files 
 - The name of the scenario can be given using _Scenario Outline:_
 - Any additional test cases can be written using annotations Given, When, And, Then
 - The data to be provided should be given using _Examples:_
+- The test cases can be increased for the same Scenario by adding more rows to the _Examples:_
 - The browser to be used for execution is denoted by _browserType_
 - The browsers supported are Firefox, Chrome and Edge.
 - The keyword to be used for browsers are: firefox- _ff_, Chrome- _chrome_, Edge- _edge_
