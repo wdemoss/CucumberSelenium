@@ -4,7 +4,7 @@ Feature: Search a place to buy at Morgantown, WV and validate on the list page a
 @test1
 
   Scenario Outline: Search a place and validate the number of listings and price of a place as per index
-  Given the browser as "<browserType>"
+    Given the browser as "<browserType>"
     Given the page is open "<url>"
     When I search for "<place>"
     Then validate the number of listing to be greater than "<numberOfListings>"

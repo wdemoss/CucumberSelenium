@@ -1,5 +1,7 @@
 package com.realtor.webtesting.CucumberPrototype;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,8 +13,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class DriverSetting {
+public class DriverSetting 
+{
 
+	private static final TimeUnit SECONDS = null;
 	public static WebDriver driver;
 	OR obj = new OR();
 	
@@ -20,28 +24,29 @@ public class DriverSetting {
 	{
 		if(browserType.equalsIgnoreCase("ff"))
 		{
-			System.getProperty("webdriver.firefox.driver","./geckodriver.exe");
+			System.getProperty("webdriver.firefox.driver",obj.PATH_FIREFOX_DRIVER);
 			driver = new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 		}
 		
 		else if(browserType.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", obj.PATH_CHROME_DRIVER);
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 		}else if(browserType.equalsIgnoreCase("edge"))
 		{
-			System.setProperty("webdriver.edge.driver", "./MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver", obj.PATH_EDGE_DRIVER);
 			driver = new EdgeDriver();
 		}
 		else
 		{
-			System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", obj.PATH_CHROME_DRIVER);
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 		}
-		
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 		return driver;
 	}
 	
@@ -49,34 +54,43 @@ public class DriverSetting {
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		int tryCount = 1;
-		while (tryCount <= 2) {	            	
-			try{
-				if (type.equalsIgnoreCase("linktext")){
-					return driver.findElement(By.linkText(webElement));
+		while (tryCount <= 2) 
+		{	            	
+			try
+			{
+				if (type.equalsIgnoreCase("linktext"))
+				{
+					return	wait.until(ExpectedConditions.elementToBeClickable(By.linkText(webElement)));
 				}
-				else if (type.equalsIgnoreCase("xpath")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.xpath(webElement)));
-					return driver.findElement(By.xpath(webElement));
+				else if (type.equalsIgnoreCase("xpath"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(webElement)));
+					//return driver.findElement(By.xpath(webElement));
 				}
-				else if (type.equalsIgnoreCase("name")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.name(webElement)));
-					return driver.findElement(By.name(webElement));
+				else if (type.equalsIgnoreCase("name"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.name(webElement)));
+					//return driver.findElement(By.name(webElement));
 				}
-				else if (type.equalsIgnoreCase("id")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.id(webElement)));
-					return driver.findElement(By.id(webElement));
+				else if (type.equalsIgnoreCase("id"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.id(webElement)));
+					//return driver.findElement(By.id(webElement));
 				}
-				else if (type.equalsIgnoreCase("classname")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.className(webElement)));
-					return driver.findElement(By.className(webElement));
+				else if (type.equalsIgnoreCase("classname"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.className(webElement)));
+					//return driver.findElement(By.className(webElement));
 				}
-				else if (type.equalsIgnoreCase("cssselector")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
-					return driver.findElement(By.cssSelector(webElement));
+				else if (type.equalsIgnoreCase("cssselector"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
+					//return driver.findElement(By.cssSelector(webElement));
 				}	
-				else if (type.equalsIgnoreCase("partialLinkText")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
-					return driver.findElement(By.partialLinkText(webElement));		            		
+				else if (type.equalsIgnoreCase("partialLinkText"))
+				{
+					return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
+					//return driver.findElement(By.partialLinkText(webElement));		            		
 				}
 			}
 			
@@ -85,35 +99,34 @@ public class DriverSetting {
 				// realtor.com has a pop up which comes up some times
 				// need to enter the code to handle that
 				if (type.equalsIgnoreCase("linktext")){
-					return driver.findElement(By.linkText(webElement));
+					return	wait.until(ExpectedConditions.elementToBeClickable(By.linkText(webElement)));
 				}
 				else if (type.equalsIgnoreCase("xpath")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.xpath(webElement)));
-					return driver.findElement(By.xpath(webElement));
+					return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(webElement)));
+					//return driver.findElement(By.xpath(webElement));
 				}
 				else if (type.equalsIgnoreCase("name")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.name(webElement)));
-					return driver.findElement(By.name(webElement));
+					return wait.until(ExpectedConditions.elementToBeClickable(By.name(webElement)));
+					//return driver.findElement(By.name(webElement));
 				}
 				else if (type.equalsIgnoreCase("id")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.id(webElement)));
-					return driver.findElement(By.id(webElement));
+					return wait.until(ExpectedConditions.elementToBeClickable(By.id(webElement)));
+					//return driver.findElement(By.id(webElement));
 				}
 				else if (type.equalsIgnoreCase("classname")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.className(webElement)));
-					return driver.findElement(By.className(webElement));
+					return wait.until(ExpectedConditions.elementToBeClickable(By.className(webElement)));
+					//return driver.findElement(By.className(webElement));
 				}
 				else if (type.equalsIgnoreCase("cssselector")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
-					return driver.findElement(By.cssSelector(webElement));
+					return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
+					//return driver.findElement(By.cssSelector(webElement));
 				}	
 				else if (type.equalsIgnoreCase("partialLinkText")){
-					wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
-					return driver.findElement(By.partialLinkText(webElement));		            		
+					return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
+					//return driver.findElement(By.partialLinkText(webElement));		            		
 				}
 			}
-			}
+		}
 		return null;
 	}
-	
 }

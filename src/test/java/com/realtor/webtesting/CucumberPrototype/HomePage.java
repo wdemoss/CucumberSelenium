@@ -38,6 +38,7 @@ public class HomePage {
 
 	@After
 	public void tearDown(Scenario scenario) throws IOException {
+		
 		if (scenario.isFailed())
 		{
 			File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -45,7 +46,6 @@ public class HomePage {
 		}
 
 		driver.quit();
-
 	}
 
 	@Given("^the browser as \"([^\"]*)\"$")
@@ -58,7 +58,6 @@ public class HomePage {
 	public void the_page_is_open(String url) throws Throwable {
 
 		driver.get(url);
-
 	}
 
 	@When("^I search for \"([^\"]*)\"$")

@@ -20,4 +20,9 @@ public class OR {
 	//common variables
 	public static String price;
 	
+	//path of web drivers
+	public static String PATH_FIREFOX_DRIVER = "./geckodriver.exe";
+	public static String PATH_CHROME_DRIVER = "./chromedriver.exe";
+	public static String PATH_EDGE_DRIVER = "./MicrosoftWebDriver.exe";
+	
 }

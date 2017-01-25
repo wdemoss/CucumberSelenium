@@ -13,6 +13,8 @@ public class ListPage {
 	OR obj = new OR();
 	DriverSetting dr = new DriverSetting();
 	WebDriver driver = dr.driver;
+	
+	
 	@Then("^validate the number of listing to be greater than \"([^\"]*)\"$")
 	public void validate_the_number_of_listing_to_be_greater_than(String lowerCount) throws Throwable {
 
