@@ -37,8 +37,8 @@ public class DriverSetting {
 		}
 		else
 		{
-			System.getProperty("webdriver.firefox.driver","./geckodriver.exe");
-			driver = new FirefoxDriver();
+			System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 		}
 		
