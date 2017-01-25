@@ -4,6 +4,8 @@ This framework is a combination of maven, cucumber and selenium.
 # Pre-requisites :
 - Java home should be set in the machine.
 - Maven home should be set in the machine.
+- Browsers supported are Firefox, Chrome and Edge.
+- If any of the browser not present, comment the data line from feature file.
 
 # Setting up project in local - 
 - If using git command line then use the below line on terminal.
@@ -27,7 +29,7 @@ This is a cucumber based project, so test cases can be written in feature files 
 - The browser to be used for execution is denoted by _browserType_
 - The browsers supported are Firefox, Chrome and Edge.
 - The keyword to be used for browsers are: firefox- _ff_, Chrome- _chrome_, Edge- _edge_
-- If browser not specified, then firefox will be default browser.
+- If browser not specified, then chrome will be default browser.
 - The test cases to be excuted needs to be specified with tags for example- _@test1_
 - This tag needs to be specified in the RunnerTest.java
 ```
