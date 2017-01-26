@@ -45,6 +45,7 @@ This is a cucumber based project, so test cases can be written in feature files 
 
 # Executing test cases
 
+- Open the comman line terminal.
 - Go to the folder where project is present.
 - Use maven commands to clean the project
 ```
