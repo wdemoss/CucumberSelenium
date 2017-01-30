@@ -8,40 +8,35 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class DriverSetting 
+public class DriverSetting
 {
 
 	private static final TimeUnit SECONDS = null;
 	public static WebDriver driver;
 	OR obj = new OR();
-	
+
 	public WebDriver returnDriver(String browserType)
 	{
 		if(browserType.equalsIgnoreCase("ff"))
 		{
-			System.getProperty("webdriver.firefox.driver",obj.PATH_FIREFOX_DRIVER);
 			driver = new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 		}
-		
+
 		else if(browserType.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", obj.PATH_CHROME_DRIVER);
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 		}else if(browserType.equalsIgnoreCase("edge"))
 		{
-			System.setProperty("webdriver.edge.driver", obj.PATH_EDGE_DRIVER);
 			driver = new EdgeDriver();
 		}
 		else
 		{
-			System.setProperty("webdriver.chrome.driver", obj.PATH_CHROME_DRIVER);
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 		}
@@ -49,13 +44,13 @@ public class DriverSetting
 
 		return driver;
 	}
-	
+
 	public WebElement returnWebElement(String webElement, String type)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		int tryCount = 1;
-		while (tryCount <= 2) 
-		{	            	
+		while (tryCount <= 2)
+		{
 			try
 			{
 				if (type.equalsIgnoreCase("linktext"))
@@ -86,14 +81,14 @@ public class DriverSetting
 				{
 					return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
 					//return driver.findElement(By.cssSelector(webElement));
-				}	
+				}
 				else if (type.equalsIgnoreCase("partialLinkText"))
 				{
 					return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
-					//return driver.findElement(By.partialLinkText(webElement));		            		
+					//return driver.findElement(By.partialLinkText(webElement));
 				}
 			}
-			
+
 			catch(Exception e)
 			{
 				// realtor.com has a pop up which comes up some times
@@ -120,10 +115,10 @@ public class DriverSetting
 				else if (type.equalsIgnoreCase("cssselector")){
 					return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(webElement)));
 					//return driver.findElement(By.cssSelector(webElement));
-				}	
+				}
 				else if (type.equalsIgnoreCase("partialLinkText")){
 					return wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(webElement)));
-					//return driver.findElement(By.partialLinkText(webElement));		            		
+					//return driver.findElement(By.partialLinkText(webElement));
 				}
 			}
 		}
