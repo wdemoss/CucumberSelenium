@@ -15,5 +15,4 @@ Feature: Search a place to buy at Morgantown, WV and validate on the list page a
    |url                    |browserType  | place            | numberOfListings | sequenceNumber     | 
    |http://www.realtor.com |     ff      | Morgantown, WV   | 0                |      2             |
    |http://www.realtor.com | chrome      | Morgantown, WV   | 0                |      2             |
-   |http://www.realtor.com | edge        | Morgantown, WV   | 0                |      2             |
-      
+#   |http://www.realtor.com | edge        | Morgantown, WV   | 0                |      2             |
