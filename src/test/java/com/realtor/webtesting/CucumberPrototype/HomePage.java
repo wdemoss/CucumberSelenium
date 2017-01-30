@@ -66,7 +66,7 @@ public class HomePage {
 		WebElement searchBox = dr.returnWebElement(obj.xpathSearchBox, "xpath");
 		searchBox.clear();
 		searchBox.sendKeys(searchValue);
-		searchBox.sendKeys(Keys.ENTER);
+		searchBox.sendKeys(Keys.RETURN);
 
 	}
 
