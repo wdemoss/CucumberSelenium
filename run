@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+mvn test -Dwebdriver.chrome.driver=`which chromedriver` -Dwebdriver.firefox.driver=`which geckodriver`

@@ -1,3 +1,17 @@
+# READ THIS FIRST
+I've added some additional support / modifications to allow this test suite to
+run on the Mac. Primarily, I've removed Edge testing and removed the hardcoded
+overrides to system properties. Additionally, I've added some scripts to help
+get this suite up and running.
+
+## Prerequisites
+* Maven (`mvn`) is installed
+* Homebrew (`brew`) is installed
+
+## Running
+* Run `./initialize` to install `chromedriver` and `geckodriver` from homebrew
+* Run `./run` to run the test suite
+
 # Web Testing Framework
 This framework is a combination of maven, cucumber and selenium.
 
